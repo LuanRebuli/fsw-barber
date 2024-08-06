@@ -2,7 +2,7 @@
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "name" TEXT,
+    "name" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -10,7 +10,7 @@ CREATE TABLE "User" (
 );
 
 -- CreateTable
-CREATE TABLE "BarberShop" (
+CREATE TABLE "Barbershop" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "address" TEXT NOT NULL,
@@ -20,11 +20,11 @@ CREATE TABLE "BarberShop" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "BarberShop_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Barbershop_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "BarberShopService" (
+CREATE TABLE "BarbershopService" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE "BarberShopService" (
     "price" DECIMAL(10,2) NOT NULL,
     "barbershopId" TEXT NOT NULL,
 
-    CONSTRAINT "BarberShopService_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "BarbershopService_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -48,10 +48,10 @@ CREATE TABLE "Booking" (
 );
 
 -- AddForeignKey
-ALTER TABLE "BarberShopService" ADD CONSTRAINT "BarberShopService_barbershopId_fkey" FOREIGN KEY ("barbershopId") REFERENCES "BarberShop"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "BarbershopService" ADD CONSTRAINT "BarbershopService_barbershopId_fkey" FOREIGN KEY ("barbershopId") REFERENCES "Barbershop"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Booking" ADD CONSTRAINT "Booking_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Booking" ADD CONSTRAINT "Booking_serviceId_fkey" FOREIGN KEY ("serviceId") REFERENCES "BarberShopService"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Booking" ADD CONSTRAINT "Booking_serviceId_fkey" FOREIGN KEY ("serviceId") REFERENCES "BarbershopService"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
