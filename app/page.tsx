@@ -1,4 +1,4 @@
-import { SearchIcon } from "lucide-react"
+import { EyeIcon, FootprintsIcon, SearchIcon } from "lucide-react"
 import Header from "./_components/header"
 import { Input } from "./_components/ui/input"
 import { Button } from "./_components/ui/button"
@@ -11,6 +11,12 @@ import BarbershopItem from "./_components/barbershop-item"
 
 const Home = async () => {
   const barbershops = await db.barbershop.findMany({})
+  const popularBarbershops = await db.barbershop.findMany({
+    orderBy: {
+      name: "desc",
+    },
+  })
+
   return (
     <div>
       <Header />
@@ -22,6 +28,33 @@ const Home = async () => {
           <Input placeholder="Faça sua Busca.." />
           <Button>
             <SearchIcon />
+          </Button>
+        </div>
+
+        <div className="mt-5 flex gap-3 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
+          <Button className="gap-2" variant="secondary">
+            <Image src="/barba.png" width={16} height={16} alt="Barba" />
+            Barba
+          </Button>
+
+          <Button className="gap-2" variant="secondary">
+            <Image src="/tesoura.png" width={16} height={16} alt="Corte" />
+            Corte de Cabelo
+          </Button>
+
+          <Button className="gap-2" variant="secondary">
+            <FootprintsIcon size={16} />
+            Pezinho
+          </Button>
+
+          <Button className="gap-2" variant="secondary">
+            <Image src="/corte.png" width={16} height={16} alt="Pezinho" />
+            Acabamento
+          </Button>
+
+          <Button className="gap-2" variant="secondary">
+            <EyeIcon size={16} />
+            Sobrancelha
           </Button>
         </div>
 
@@ -67,7 +100,23 @@ const Home = async () => {
             <BarbershopItem key={barbershop.id} barbershop={barbershop} />
           ))}
         </div>
+
+        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+          Populares
+        </h2>
+        <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
+          {popularBarbershops.map((barbershop) => (
+            <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+          ))}
+        </div>
       </div>
+      <footer>
+        <Card>
+          <CardContent className="px-5 py-6">
+            <p className="textgray-400 text-sm">© 2023 Copyright FSW Barber</p>
+          </CardContent>
+        </Card>
+      </footer>
     </div>
   )
 }
