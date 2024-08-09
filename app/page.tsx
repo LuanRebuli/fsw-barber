@@ -74,13 +74,6 @@ const Home = async () => {
           ))}
         </div>
       </div>
-      <footer>
-        <Card>
-          <CardContent className="px-5 py-6">
-            <p className="textgray-400 text-sm">© 2023 Copyright FSW Barber</p>
-          </CardContent>
-        </Card>
-      </footer>
     </div>
   )
 }
