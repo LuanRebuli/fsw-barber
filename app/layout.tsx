@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "sonner"
@@ -12,13 +12,9 @@ export const metadata: Metadata = {
   description: "O melhor agendamento de Barbearias",
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="pt-BR" className="dark">
       <body className={inter.className}>
         <AuthProvider>
           <div className="flex h-full flex-col">

@@ -55,6 +55,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
       setIsSheetOpen(false)
       toast.success("Reserva cancelada com sucesso!")
     } catch (error) {
+      console.error("Erro ao cancelar reserva:", error) // Log do erro
       toast.error("Erro ao cancelar reserva!")
     }
   }
