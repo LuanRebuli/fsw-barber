@@ -41,7 +41,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
           <Search />
         </div>
       </div>
-      <div className="flex laptop:mb-24 laptop:ml-32 laptop:mr-32 laptop:mt-10">
+      <div className="flex laptop:mb-24 laptop:ml-32 laptop:mr-32 laptop:mt-10 desktop:ml-40">
         {/* DIV CELULAR */}
         <div className="mobile:block laptop:hidden">
           <div className="relative h-[250px] w-full">
