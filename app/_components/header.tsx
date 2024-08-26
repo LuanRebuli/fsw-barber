@@ -30,15 +30,11 @@ const Header = () => {
           />
         </Link>
         <Sheet>
-          <SheetTrigger className="flex justify-center">
-            {/* Apenas um botão para o menu */}
-            <Button
-              size="icon"
-              variant="outline"
-              className="mobile:block laptop:hidden"
-            >
-              <MenuIcon />
-            </Button>
+          <SheetTrigger className="flex justify-center mobile:block laptop:hidden">
+            {/* Apenas um ícone para o menu */}
+            <div className="flex items-center justify-center">
+              <MenuIcon className="relative left-2 cursor-pointer" />
+            </div>
           </SheetTrigger>
 
           <SidebarSheet />

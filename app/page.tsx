@@ -87,7 +87,7 @@ const Home = async () => {
             <div className="flex">
               <div className="flex flex-col">
                 {/* Menu de Pesquisa */}
-                <div className="mobile:mt-2 mobile:w-full laptop:mt-12 laptop:w-[391px]">
+                <div className="mobile:mt-4 mobile:w-full laptop:mt-12 laptop:w-[391px]">
                   <Search />
                 </div>
 
@@ -128,7 +128,10 @@ const Home = async () => {
                   <CarouselContent>
                     {barbershops.map((barbershop) => (
                       <>
-                        <CarouselItem className="ml-3 flex basis-1/3">
+                        <CarouselItem
+                          className="ml-3 flex basis-1/3"
+                          key={barbershop.id}
+                        >
                           <BarbershopItemPc
                             key={barbershop.id}
                             barbershop={barbershop}
@@ -154,7 +157,10 @@ const Home = async () => {
                 <CarouselContent>
                   {barbershops.map((barbershop) => (
                     <>
-                      <CarouselItem className="ml-3 flex basis-1/5">
+                      <CarouselItem
+                        key={barbershop.id}
+                        className="ml-3 flex basis-1/5"
+                      >
                         <BarbershopItemPc
                           key={barbershop.id}
                           barbershop={barbershop}
@@ -176,7 +182,10 @@ const Home = async () => {
                 <CarouselContent>
                   {barbershops.map((barbershop) => (
                     <>
-                      <CarouselItem className="ml-3 flex basis-1/5">
+                      <CarouselItem
+                        key={barbershop.id}
+                        className="ml-3 flex basis-1/5"
+                      >
                         <BarbershopItemPc
                           key={barbershop.id}
                           barbershop={barbershop}
@@ -191,12 +200,12 @@ const Home = async () => {
             </div>
           </div>
 
-          <div>
+          <div className="mobile:block laptop:hidden">
             {/* Quick Search Mobile */}
-            <div className="mt-5 flex gap-3 overflow-x-scroll mobile:visible laptop:hidden [&::-webkit-scrollbar]:hidden">
+            <div className="mt-5 flex gap-3 overflow-x-scroll mobile:visible laptop:invisible [&::-webkit-scrollbar]:hidden">
               {quickSearchOptions.map((option) => (
                 <Button
-                  className="gap-2 laptop:h-[36px] laptop:w-[40px]"
+                  className="[40px] z-50 h-[36px] gap-2"
                   variant="secondary"
                   key={option.title}
                   asChild
@@ -204,6 +213,7 @@ const Home = async () => {
                   <Link href={`/barbershops?service=${option.title}`}>
                     <Image
                       src={option.imageUrl}
+                      key={option.title}
                       width={16}
                       height={16}
                       alt={option.title}
@@ -215,10 +225,10 @@ const Home = async () => {
             </div>
 
             {/* IMAGEM MOBILE */}
-            <div className="relative mt-6 h-[150px] w-full mobile:block laptop:hidden">
+            <div className="relative mt-6 h-[150px] w-full">
               <Image
                 alt="Agende nos melhores com FSW Barber"
-                src="/banner-01.png"
+                src="/banner-01.svg"
                 fill
                 className="rounded-xl object-cover"
               />
@@ -226,23 +236,32 @@ const Home = async () => {
 
             {/* Agendamentos Mobile*/}
             {confirmedBookings.length > 0 && (
-              <div className="mobile:block laptop:hidden">
+              <div className="w-[700px]">
                 <h2 className="mt-6 text-xs font-bold uppercase text-gray-400">
                   Agendamentos
                 </h2>
-                <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
-                  {confirmedBookings.map((booking) => (
-                    <BookingItem
-                      key={booking.id}
-                      booking={JSON.parse(JSON.stringify(booking))}
-                    />
-                  ))}
-                </div>
+                <Carousel className="flex gap-3 overflow-auto">
+                  <CarouselContent>
+                    {confirmedBookings.map((booking) => (
+                      <>
+                        <CarouselItem
+                          key={booking.id}
+                          className="flex basis-1/2"
+                        >
+                          <BookingItem
+                            key={booking.id}
+                            booking={JSON.parse(JSON.stringify(booking))}
+                          />
+                        </CarouselItem>
+                      </>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
               </div>
             )}
 
             {/* TODO: componentizar esses itens de Recomendação, Populares, Mais Visitados */}
-            <div className="mobile:block laptop:hidden">
+            <div>
               <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
                 Recomendados
               </h2>

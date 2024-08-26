@@ -111,6 +111,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
           <SheetTitle className="text-left">Informações da Reserva</SheetTitle>
         </SheetHeader>
 
+        {/* TODO - COMPONENTIZAR ISSO E USAR EM PAGE [ID - BOOKINGS] */}
         <div className="relative flex h-[180px] w-full items-end mobile:mt-6 laptop:mt-10">
           <Image
             alt="Mapa da barberia"
@@ -131,7 +132,6 @@ const BookingItem = ({ booking }: BookingItemProps) => {
             </CardContent>
           </Card>
         </div>
-
         <div className="mt-6">
           <Badge
             className="w-fit"
@@ -182,7 +182,6 @@ const BookingItem = ({ booking }: BookingItemProps) => {
             ))}
           </div>
         </div>
-
         <SheetFooter className="mt-6">
           <div className="flex items-center gap-3">
             <SheetClose asChild>

@@ -1,4 +1,5 @@
 import BarbershopItem from "../_components/barbershop-item-mobile"
+import BarbershopItemPc from "../_components/barbershop-item-pc"
 import Header from "../_components/header"
 import Search from "../_components/search"
 import { db } from "../_lib/prisma"
@@ -49,10 +50,19 @@ const BarbershopsPage = async ({ searchParams }: BarbershopsPageProps) => {
           Resultados para &quot;{searchParams?.title || searchParams?.service}
           &quot;
         </h2>
-        <div className="mb-10 grid grid-cols-2 gap-4">
-          {barbershops.map((barbershop) => (
-            <BarbershopItem key={barbershop.id} barbershop={barbershop} />
-          ))}
+        <div className="mobile:hidden laptop:block">
+          <div className="mb-10 grid gap-4 mobile:grid-cols-2 laptop:grid-cols-3">
+            {barbershops.map((barbershop) => (
+              <BarbershopItemPc key={barbershop.id} barbershop={barbershop} />
+            ))}
+          </div>
+        </div>
+        <div className="mobile:block laptop:hidden">
+          <div className="mb-10 grid gap-4 mobile:grid-cols-2 laptop:grid-cols-3">
+            {barbershops.map((barbershop) => (
+              <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

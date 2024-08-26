@@ -196,7 +196,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                 >
                   Reservar
                 </Button>
-                <SheetContent className="min-w-[90%] px-8">
+                <SheetContent className="px-8 mobile:w-[90%] laptop:w-[30%]">
                   <SheetHeader>
                     <SheetTitle>Fazer Reserva</SheetTitle>
                   </SheetHeader>

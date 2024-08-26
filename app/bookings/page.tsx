@@ -73,11 +73,11 @@ const Bookings = async () => {
                 Confirmados
               </h2>
 
-              <Carousel className="flex max-h-[350px] w-[400px]">
+              <Carousel className="max-h-[350px] max-w-[800px]">
                 <CarouselContent>
                   {confirmedBookings.map((booking) => (
                     <>
-                      <CarouselItem key={booking.id}>
+                      <CarouselItem key={booking.id} className="basis-1/2">
                         <BookingItem
                           key={booking.id}
                           booking={JSON.parse(JSON.stringify(booking))}
@@ -97,11 +97,11 @@ const Bookings = async () => {
                 Concluidos
               </h2>
 
-              <Carousel className="flex w-[400px]">
+              <Carousel className="max-h-[350px] max-w-[800px]">
                 <CarouselContent>
                   {concludedBookings.map((booking) => (
                     <>
-                      <CarouselItem>
+                      <CarouselItem key={booking.id} className="basis-1/2">
                         <BookingItem
                           key={booking.id}
                           booking={JSON.parse(JSON.stringify(booking))}
