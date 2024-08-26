@@ -29,7 +29,7 @@ Responsividade para desktops e mobiles
 
 ## Run Project in you Navigator
 
-https://fsw-barber-ftbnxzzu1-luanrebulis-projects.vercel.app
+https://fsw-barber-phi.vercel.app/
 
 ## Contributors
 
