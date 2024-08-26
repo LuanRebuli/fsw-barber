@@ -4,7 +4,8 @@
   Agende conosco!
 </h3>
 
-<img src="./public/img-tela.PNG" alt="img project">
+<img src="./public/iphone-homepage.png" alt="img project">
+<img src="./public/macbook-homepage.png" alt="img project">
 
 ## 🏠 About the project
 
