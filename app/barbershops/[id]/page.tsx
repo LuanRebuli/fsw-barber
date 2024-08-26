@@ -124,7 +124,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
         <div className="flex w-full flex-row mobile:hidden laptop:block">
           {/* DIV DIREITA */}
           <div className="w-1/2">
-            <div className="relative h-[400px] w-[800px]">
+            <div className="relative h-[400px] laptop:w-[650px] desktop:w-[800px]">
               <Image
                 alt={barbershop?.name}
                 src={barbershop?.imageUrl}
@@ -165,7 +165,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
             </div>
           </div>
           {/* DIV ESQUERDA */}
-          <Card className="absolute right-[480px] top-36 flex w-[23%] flex-col">
+          <Card className="absolute top-36 flex w-[27%] flex-col laptop:right-[330px] desktop:right-[380px]">
             <CardContent>
               <div className="relative mx-auto mt-10 flex h-[180px] w-[350px] items-end">
                 <Image
