@@ -98,11 +98,11 @@ const Home = async () => {
                       Agendamentos
                     </h2>
 
-                    <Carousel className="flex gap-3">
+                    <Carousel className="flex w-[400px] gap-3">
                       <CarouselContent>
                         {confirmedBookings.map((booking) => (
                           <>
-                            <CarouselItem key={booking.id} className="w-full">
+                            <CarouselItem key={booking.id}>
                               <BookingItem
                                 key={booking.id}
                                 booking={JSON.parse(JSON.stringify(booking))}
@@ -118,9 +118,10 @@ const Home = async () => {
                   </div>
                 )}
               </div>
+
               {/* Recomendados da parte Desktop */}
               <div className="relative bottom-28 ml-32 mobile:hidden laptop:block">
-                <h2 className="mb-3 mt-6 text-sm font-bold uppercase text-gray-400 mobile:invisible laptop:visible">
+                <h2 className="mt-6 text-sm font-bold uppercase text-gray-400 mobile:invisible laptop:visible">
                   Recomendados
                 </h2>
                 <Carousel className="flex w-[830px] mobile:invisible laptop:visible">
@@ -140,6 +141,53 @@ const Home = async () => {
                   <CarouselNext />
                 </Carousel>
               </div>
+            </div>
+          </div>
+
+          <div className="mb-5">
+            {/* Populares Desktop*/}
+            <div className="ml-3 mobile:hidden laptop:block">
+              <h2 className="mb-3 mt-6 text-sm font-bold uppercase text-gray-400 mobile:invisible laptop:visible">
+                Populares
+              </h2>
+              <Carousel className="flex w-[1400px] mobile:invisible laptop:visible">
+                <CarouselContent>
+                  {barbershops.map((barbershop) => (
+                    <>
+                      <CarouselItem className="ml-3 flex basis-1/5">
+                        <BarbershopItemPc
+                          key={barbershop.id}
+                          barbershop={barbershop}
+                        />
+                      </CarouselItem>
+                    </>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            </div>
+            {/* Mais Visitados Desktop*/}
+            <div className="ml-3 mobile:hidden laptop:block">
+              <h2 className="mb-3 mt-6 text-sm font-bold uppercase text-gray-400 mobile:invisible laptop:visible">
+                Mais Visitados
+              </h2>
+              <Carousel className="flex w-[1400px] mobile:invisible laptop:visible">
+                <CarouselContent>
+                  {barbershops.map((barbershop) => (
+                    <>
+                      <CarouselItem className="ml-3 flex basis-1/5">
+                        <BarbershopItemPc
+                          key={barbershop.id}
+                          barbershop={barbershop}
+                        />
+                      </CarouselItem>
+                    </>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
             </div>
           </div>
 

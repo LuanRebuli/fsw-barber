@@ -65,7 +65,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
   return (
     <Sheet open={isSheetOpen} onOpenChange={handleSheetOpenChange}>
       <SheetTrigger className="w-full min-w-[90%]">
-        <Card className="mt-3 min-w-[90%]">
+        <Card className="mt-3 mobile:w-[350px] laptop:w-[400px]">
           <CardContent className="flex justify-between p-0">
             <div className="flex flex-col gap-2 py-5 pl-5">
               <Badge
@@ -106,12 +106,12 @@ const BookingItem = ({ booking }: BookingItemProps) => {
           </CardContent>
         </Card>
       </SheetTrigger>
-      <SheetContent className="w-[85%]">
+      <SheetContent className="mobile:w-[85%] laptop:w-[25%]">
         <SheetHeader>
           <SheetTitle className="text-left">Informações da Reserva</SheetTitle>
         </SheetHeader>
 
-        <div className="relative mt-6 flex h-[180px] w-full items-end">
+        <div className="relative flex h-[180px] w-full items-end mobile:mt-6 laptop:mt-10">
           <Image
             alt="Mapa da barberia"
             src="/map.png"
@@ -197,7 +197,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
                     Cancelar Reserva
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="w-[95%]">
+                <DialogContent className="mobile:w-[95%] laptop:w-[80%]">
                   <DialogHeader>
                     <DialogTitle>Você deseja cancelar sua reserva?</DialogTitle>
                     <DialogDescription>
