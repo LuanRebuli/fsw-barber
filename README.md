@@ -49,6 +49,6 @@ We thank the following people who contributed to this project:
 
 ## Certificates
 
-https://app.rocketseat.com.br/certificates/3d261164-b7f5-4773-8414-72b172ad6f3c
+
 
 </table>
